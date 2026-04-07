@@ -6,40 +6,41 @@ public class Acertijo {
     algoritmo.insertarPalabra("MORE");
     algoritmo.insertarResolucion("MONEY");
 
-    algoritmo.resolver();
+    boolean resultado = algoritmo.resolver();
+    System.out.println(resultado);
+    char[] letras = algoritmo.getLetras();
+    int[] valoresLetras = algoritmo.getValoresLetras();
+    for (int i = 0; i < letras.length; i++) {
+      System.out.println(letras[i] + ":" + valoresLetras[i]);
+    }
   }
 }
 
 class Algoritmo {
-  private PilaSumandos pilaSumandos = new PilaSumandos();
-  private String resolucion;
-  private ListaLetras listaLetras = new ListaLetras();
+  IndiceLetras indiceLetras;
+  PilaPalabras pilaPalabras;
+  Palabra resolucion;
 
   public void insertarPalabra(String palabra) {
-    char[] palabraChar = palabra.toCharArray();
-    pilaSumandos.insertar(palabraChar);
+    indiceLetras.insertar(palabra);
+  }
+
+  public int[] getValoresLetras() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getValoresLetras'");
+  }
+
+  public char[] getLetras() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getLetras'");
+  }
+
+  public boolean resolver() {
+    return pilaPalabras.valorTotal(indiceLetras) == resolucion.valor(indiceLetras);
   }
 
   public void insertarResolucion(String palabra) {
-    resolucion = palabra;
-  }
-
-  public void resolver() {
-    listarLetras(pilaSumandos);
-  }
-
-  private void listarLetras(PilaSumandos unaPilaSumandos) {
-    for (int i = 0; i < unaPilaSumandos.length(); i++) {
-      char[] palabra = unaPilaSumandos.leer().toCharArray();
-      for (char c : palabra) {
-        boolean estaLetraEnLista = listaLetras.contiene(c);
-        if (!estaLetraEnLista) {
-          listaLetras.insertar(c);
-        } else if (estaLetraEnLista) {
-          listaLetras.contiene(c);
-        }
-      }
-    }
+    resolucion = new Palabra(palabra);
   }
 
 }
