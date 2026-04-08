@@ -1,18 +1,24 @@
-
 public class NodoPalabra {
-  NodoPalabra siguienteNodo;
-  Palabra palabra;
+  private NodoPalabra siguiente;
+  private Palabra palabra;
 
-  public NodoPalabra(String palabra) {
-    this.palabra = new Palabra(palabra);
+  public NodoPalabra(Palabra palabra) {
+    this.palabra = palabra;
   }
 
-  public void push(String palabra) {
-    if (siguienteNodo == null) {
-      siguienteNodo = new NodoPalabra(palabra);
+  public void insertarAlFinal(Palabra nuevaPalabra) {
+    if (siguiente == null) {
+      siguiente = new NodoPalabra(nuevaPalabra);
     } else {
-      siguienteNodo.push(palabra);
+      siguiente.insertarAlFinal(nuevaPalabra);
     }
   }
 
+  public Palabra getPalabra() {
+      return palabra;
+  }
+
+  public NodoPalabra getSiguiente() {
+      return siguiente;
+  }
 }

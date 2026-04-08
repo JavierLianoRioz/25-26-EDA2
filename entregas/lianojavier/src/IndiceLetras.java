@@ -1,28 +1,51 @@
-
 public class IndiceLetras {
   private ArbolLetras arbol = new ArbolLetras();
+  private Letra[] listaLetras = new Letra[10];
+  private int cantidadLetras = 0;
 
-  public void insertar(String palabra) {
-    char[] palabraChar = palabra.toCharArray();
-    for (char letra : palabraChar) {
-      if (!estaIndexada(letra)) {
-        insertar(letra);
-      }
+  public void añadir(String palabra) {
+    char[] caracteres = palabra.toCharArray();
+    for (int i = 0; i < caracteres.length; i++) {
+      procesarCaracter(caracteres[i], i == 0);
     }
   }
 
-  private boolean estaIndexada(char letra) {
-    return arbol.estaIndexada(letra);
+  private void procesarCaracter(char caracter, boolean esPrimeraLetra) {
+    Letra letra = registrarSiFalta(caracter);
+    if (esPrimeraLetra) {
+      letra.prohibirCero();
+    }
   }
 
-  public void insertar(char caracter) {
-    Letra letra = new Letra(caracter);
-    arbol.insertar(letra);
+  private Letra registrarSiFalta(char caracter) {
+    Letra letra = arbol.buscar(caracter);
+    if (letra == null) {
+      letra = crearYAñadir(caracter);
+    }
+    return letra;
   }
 
-  public Letra[] listarLetras() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'listarLetras'");
+  private Letra crearYAñadir(char caracter) {
+    Letra nuevaLetra = new Letra(caracter);
+    arbol.insertar(nuevaLetra);
+    almacenarEnArray(nuevaLetra);
+    return nuevaLetra;
   }
 
+  private void almacenarEnArray(Letra letra) {
+    listaLetras[cantidadLetras] = letra;
+    cantidadLetras++;
+  }
+
+  public Letra conseguir(char caracter) {
+      return arbol.buscar(caracter);
+  }
+
+  public Letra[] listarTodas() {
+    Letra[] obtenidas = new Letra[cantidadLetras];
+    for (int i = 0; i < cantidadLetras; i++) {
+        obtenidas[i] = listaLetras[i];
+    }
+    return obtenidas;
+  }
 }
