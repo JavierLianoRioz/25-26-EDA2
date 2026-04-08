@@ -24,8 +24,9 @@ class Algoritmo {
   private ListaPalabras sumandos = new ListaPalabras();
   private Palabra resolucion;
 
-  public void registrarSumando(String palabra) {
-    sumandos.insertar(new Palabra(palabra, letrasUnicas));
+  public void registrarSumando(String string) {
+    Palabra palabra = new Palabra(string, letrasUnicas);
+    sumandos.insertar(palabra);
   }
 
   public void establecerResolucion(String palabra) {
@@ -36,10 +37,14 @@ class Algoritmo {
     return letrasUnicas.listarTodas();
   }
 
+  private final int LETRAS_ALFABETO = 10;
+
   public boolean resolver() {
-    boolean[] digitosUsados = new boolean[10]; 
+    boolean[] digitosUsados = new boolean[LETRAS_ALFABETO];
     return buscarAsignacionRecursiva(0, digitosUsados);
   }
+
+  private final int[] NUMEROS_DECIMALES = { 0, 9 };
 
   private boolean buscarAsignacionRecursiva(int indiceActual, boolean[] usados) {
     if (hemosAsignadoTodas(indiceActual)) {
@@ -48,7 +53,7 @@ class Algoritmo {
 
     Letra letraActual = getLetras()[indiceActual];
 
-    for (int digito = 0; digito <= 9; digito++) {
+    for (int digito = NUMEROS_DECIMALES[0]; digito <= NUMEROS_DECIMALES[1]; digito++) {
       if (esDigitoValidoParaLetra(digito, letraActual, usados)) {
         asignarDigito(letraActual, digito, usados);
 
@@ -64,26 +69,32 @@ class Algoritmo {
   }
 
   private boolean hemosAsignadoTodas(int indiceActual) {
-      return indiceActual == getLetras().length;
+    return indiceActual == getLetras().length;
   }
 
   private boolean esEcuacionCorrecta() {
-      return sumandos.calcularSumaTotal() == resolucion.calcularValor();
+    return sumandos.calcularSumaTotal() == resolucion.calcularValor();
   }
 
   private boolean esDigitoValidoParaLetra(int digito, Letra letra, boolean[] usados) {
-      if (usados[digito]) return false;
-      if (digito == 0 && letra.noPuedeSerCero()) return false;
-      return true;
+    if (usados[digito]) {
+      return false;
+    }
+
+    if (digito == 0 && letra.noPuedeSerCero()) {
+      return false;
+    }
+
+    return true;
   }
 
   private void asignarDigito(Letra letra, int digito, boolean[] usados) {
-      letra.setValor(digito);
-      usados[digito] = true;
+    letra.setValor(digito);
+    usados[digito] = true;
   }
 
   private void deshacerAsignacion(Letra letra, int digito, boolean[] usados) {
-      letra.setValor(0);
-      usados[digito] = false;
+    letra.setValor(0);
+    usados[digito] = false;
   }
 }
