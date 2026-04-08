@@ -3,37 +3,37 @@ public class NodoLetras {
   NodoLetras nodoIzquierdo;
   NodoLetras nodoDerecho;
 
-  char letra;
+  Letra letra;
 
-  public NodoLetras(char letra) {
+  public NodoLetras(Letra letra) {
     this.letra = letra;
   }
 
-  public void insertar(char nuevaLetra) {
-    if (nuevaLetra < letra) {
-      insertarLetraEnArbol(nodoIzquierdo, nuevaLetra);
+  public void insertar(Letra letraAInsertar) {
+    if (letraAInsertar.caracter < letra.caracter) {
+      insertarLetraEnArbol(nodoIzquierdo, letraAInsertar);
     } else {
-      insertarLetraEnArbol(nodoDerecho, nuevaLetra);
+      insertarLetraEnArbol(nodoDerecho, letraAInsertar);
     }
   }
 
-  private void insertarLetraEnArbol(NodoLetras nodo, char nuevaLetra) {
+  private void insertarLetraEnArbol(NodoLetras nodo, Letra letraAInsertar) {
     if (nodo == null) {
-      nodo = new NodoLetras(nuevaLetra);
+      nodo = new NodoLetras(letraAInsertar);
     } else {
-      nodo.insertar(nuevaLetra);
+      nodo.insertar(letraAInsertar);
     }
   }
 
-  public boolean buscar(char letraABuscar) {
-    if (this.letra == letraABuscar) {
+  public boolean buscar(char caracterABuscar) {
+    if (this.letra.caracter == caracterABuscar) {
       return true;
     }
 
-    if (nodoIzquierdo != null && letraABuscar < this.letra) {
-      return nodoIzquierdo.buscar(letraABuscar);
-    } else if (nodoDerecho != null && letraABuscar > this.letra) {
-      return nodoDerecho.buscar(letraABuscar);
+    if (nodoIzquierdo != null && caracterABuscar < this.letra.caracter) {
+      return nodoIzquierdo.buscar(caracterABuscar);
+    } else if (nodoDerecho != null && caracterABuscar > this.letra.caracter) {
+      return nodoDerecho.buscar(caracterABuscar);
     }
 
     return false;

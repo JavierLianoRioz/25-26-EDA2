@@ -15,8 +15,14 @@ public class IndiceLetras {
     return arbol.estaIndexada(letra);
   }
 
-  public void insertar(char letra) {
+  public void insertar(char caracter) {
+    Letra letra = new Letra(caracter);
     arbol.insertar(letra);
+  }
+
+  public Letra[] listarLetras() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'listarLetras'");
   }
 
 }

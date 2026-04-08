@@ -2,11 +2,11 @@
 public class ArbolLetras {
   private NodoLetras raiz;
 
-  public void insertar(char nuevaLetra) {
+  public void insertar(Letra letra) {
     if (raiz == null) {
-      raiz = new NodoLetras(nuevaLetra);
+      raiz = new NodoLetras(letra);
     } else {
-      raiz.insertar(nuevaLetra);
+      raiz.insertar(letra);
     }
   }
 

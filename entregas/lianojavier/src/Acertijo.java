@@ -8,10 +8,9 @@ public class Acertijo {
 
     boolean resultado = algoritmo.resolver();
     System.out.println(resultado);
-    char[] letras = algoritmo.getLetras();
-    int[] valoresLetras = algoritmo.getValoresLetras();
+    Letra[] letras = algoritmo.getLetras();
     for (int i = 0; i < letras.length; i++) {
-      System.out.println(letras[i] + ":" + valoresLetras[i]);
+      System.out.println(letras[i].caracter + ":" + letras[i].valor);
     }
   }
 }
@@ -25,17 +24,15 @@ class Algoritmo {
     indiceLetras.insertar(palabra);
   }
 
-  public int[] getValoresLetras() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getValoresLetras'");
+  public Letra[] getLetras() {
+    return indiceLetras.listarLetras();
   }
 
-  public char[] getLetras() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getLetras'");
+  public boolean resolver(IndiceLetras indiceLetras) {
+    return resolver(indiceLetras.siguientePaso());
   }
 
-  public boolean resolver() {
+  private boolean esConvinacionValida() {
     return pilaPalabras.valorTotal(indiceLetras) == resolucion.valor(indiceLetras);
   }
 

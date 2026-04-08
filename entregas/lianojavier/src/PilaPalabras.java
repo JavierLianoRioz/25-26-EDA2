@@ -10,4 +10,9 @@ public class PilaPalabras {
     }
   }
 
+  public int valorTotal(IndiceLetras indiceLetras) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'valorTotal'");
+  }
+
 }

@@ -6,4 +6,9 @@ public class Palabra {
     this.palabra = palabra;
   }
 
+  public int valor(IndiceLetras indiceLetras) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'valor'");
+  }
+
 }
