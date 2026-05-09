@@ -10,11 +10,13 @@ Para definir como funciona primero hay que entender el problema y extraer las ve
 
 El problema nos expone una matriz de N*N numeros que aumentan de izquierda a derecha y de arriba a abajo.
 
+```
  2   5   9  14  21
  4   7  11  17  25
  8  12  15  20  30
 13  18  22  27  35
 19  24  28  33  40
+```
 
 ### ¿De qué nos podemos beneficiar?
 
