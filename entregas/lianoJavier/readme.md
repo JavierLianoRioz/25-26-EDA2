@@ -68,61 +68,77 @@ Como 27 es mayor a 19 todo lo mayor a 27 se tacha y el 27 también.
 
 Como es menor nos intentamos mover para atras en la diagonal secundaria. Como no nos podemos mover la siguiente opción es arriba del 27.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11*  17  25
  *8*  *12*  *15* (20) 30
 13  18  22  *27*  *35*
 19  24  28  *33*  *40*
+```
 
 20 es mayor que 19, así que tachamos todo lo que esté a la derecha y abajo.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11* (17) 25
  *8*  *12*  *15*  *20*  *30*
 13  18  22  *27*  *35*
 19  24  28  *33*  *40*
+```
 
 Y así hasta encontrar el número.
 
+```
  *2*   *5*   *9* (14) 21
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 13  18  22  *27*  *35*
 19  24  28  *33*  *40*
+```
 
+```
  *2*   *5*   *9*  *14*  *21*
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 13  18  22  *27*  *35*
 19  24  28  *33*  *40*
+```
 
 Cuando llegemos a este caso entonces buscamos por backtracking el último movimiento posible.
 
+```
  *2*   *5*   *9*  *14*  *21*
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 13  18 (22) *27*  *35*
 19  24  28  *33*  *40*
+```
 
 Y volvemos
 
+```
  *2*   *5*   *9*  *14*  *21*
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 13 (18) *22*  *27*  *35*
 19  24  *28*  *33*  *40*
+```
 
+```
  *2*   *5*   *9*  *14*  *21*
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 *13*  *18*  *22*  *27*  *35*
 19 (24) *28*  *33*  *40*
+```
 
+```
  *2*   *5*   *9*  *14*  *21*
  *4*   *7*  *11*  *17*  *25*
  *8*  *12*  *15*  *20*  *30*
 *13*  *18*  *22*  *27*  *35*
 (19)*24*  *28*  *33*  *40*
+```
 
 Y encontramos el 19! Si no hay más movimientos posibles entonces el número no esta en la matriz.
 
@@ -187,31 +203,33 @@ Para el codigo completo se puede ver en este [link](./src)
 
 
 Visitando valor 15 (Buscando: 22)
+```
   2    5    9   14   21
   4    7   11   17   25
   8   12  (15)  20   30
  13   18   22   27   35
  19   24   28   33   40
+```
 
 Menor que objetivo. Descartando cuadrante superior-izquierdo.
   Visitando valor 27 (Buscando: 22)
+```
     *2    5    9*   14   21
     *4    7   11*   17   25
     *8   12   15*   20   30
    13   18   22  (27)  35
    19   24   28   33   40
+```
 
   Mayor que objetivo. Descartando cuadrante inferior-derecho.
     Visitando valor 22 (Buscando: 22)
+```
       *2    5    9*   14   21
-
       *4    7   11*   17   25
-
       *8   12   15*   20   30
-
      13   18  (22)  *27   35*
-
      19   24   28   *33   40*
+```
 
     Exito: Objetivo encontrado.
 Comparaciones totales realizadas: 5
