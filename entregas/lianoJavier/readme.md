@@ -204,9 +204,13 @@ Menor que objetivo. Descartando cuadrante superior-izquierdo.
   Mayor que objetivo. Descartando cuadrante inferior-derecho.
     Visitando valor 22 (Buscando: 22)
       *2    5    9*   14   21
+
       *4    7   11*   17   25
+
       *8   12   15*   20   30
+
      13   18  (22)  *27   35*
+
      19   24   28   *33   40*
 
     Exito: Objetivo encontrado.
