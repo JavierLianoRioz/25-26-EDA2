@@ -26,45 +26,55 @@ La idea es simple. Por ejemplo vamos a buscar el 19:
 
 Empezamos en el centro siempre (posicion: floor(N/2)*floor(N/2)):
 
+```
  2   5   9  14  21
  4   7  11  17  25
  8  12 (15) 20  30
 13  18  22  27  35
 19  24  28  33  40
+```
 
 15 es menor a 19. Por lo que:
 
 Todo lo que este a la izquierda y arriba, y por consiguiente todos los menores a esos numeros son también descartados de ser 19.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11*  17  25
  *8*  *12* (15) 20  30
 13  18  22  27  35
 19  24  28  33  40
+```
 
 Y como 15 tampoco es, pues directamente lo tachamos.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11*  17  25
  *8*  *12* (*15*) 20  30
 13  18  22  27  35
 19  24  28  33  40
+```
 
 Entonces lo que hacemos es movernos en diagonal secundaria uno hacia adelante.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11*  17  25
  *8*  *12*  *15*  20  30
 13  18  22 (27) 35
 19  24  28  33  40
+```
 
 Como 27 es mayor a 19 todo lo mayor a 27 se tacha y el 27 también.
 
+```
  *2*   *5*   *9*  14  21
  *4*   *7*  *11*  17  25
  *8*  *12*  *15*  20  30
 13  18  22 (*27*) *35*
 19  24  28  *33*  *40*
+```
 
 Como es menor nos intentamos mover para atras en la diagonal secundaria. Como no nos podemos mover la siguiente opción es arriba del 27.
 
