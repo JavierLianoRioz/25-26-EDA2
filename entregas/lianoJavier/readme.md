@@ -245,3 +245,192 @@ Menor que objetivo. Descartando cuadrante superior-izquierdo.
 
     Exito: Objetivo encontrado.
 Comparaciones totales realizadas: 5
+
+## Trazado para 21.
+
+Visitando valor 15 (Buscando: 21)
+  2    5    9   14   21
+  4    7   11   17   25
+  8   12  (15)  20   30
+ 13   18   22   27   35
+ 19   24   28   33   40
+
+Menor que objetivo. Descartando cuadrante superior-izquierdo.
+  Visitando valor 27 (Buscando: 21)
+    2    5    9   14   21
+    4    7   11   17   25
+    8   12   15   20   30
+   13   18   22  (27)  35
+   19   24   28   33   40
+
+  Mayor que objetivo. Descartando cuadrante inferior-derecho.
+    Visitando valor 22 (Buscando: 21)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15   20   30
+     13   18  (22)  27   35
+     19   24   28   33   40
+
+    Mayor que objetivo. Descartando cuadrante inferior-derecho.
+      Visitando valor 18 (Buscando: 21)
+        2    5    9   14   21
+        4    7   11   17   25
+        8   12   15   20   30
+       13  (18)  22   27   35
+       19   24   28   33   40
+
+      Menor que objetivo. Descartando cuadrante superior-izquierdo.
+        Visitando valor 24 (Buscando: 21)
+          2    5    9   14   21
+          4    7   11   17   25
+          8   12   15   20   30
+         13   18   22   27   35
+         19  (24)  28   33   40
+
+        Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Visitando valor 19 (Buscando: 21)
+            2    5    9   14   21
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+          (19)  24   28   33   40
+
+          Menor que objetivo. Descartando cuadrante superior-izquierdo.
+          Retrocediendo (Backtracking)...
+        Retrocediendo (Backtracking)...
+      Retrocediendo (Backtracking)...
+    Retrocediendo (Backtracking)...
+    Visitando valor 20 (Buscando: 21)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15  (20)  30
+     13   18   22   27   35
+     19   24   28   33   40
+
+    Menor que objetivo. Descartando cuadrante superior-izquierdo.
+      Visitando valor 30 (Buscando: 21)
+        2    5    9   14   21
+        4    7   11   17   25
+        8   12   15   20  (30)
+       13   18   22   27   35
+       19   24   28   33   40
+
+      Mayor que objetivo. Descartando cuadrante inferior-derecho.
+        Visitando valor 25 (Buscando: 21)
+          2    5    9   14   21
+          4    7   11   17  (25)
+          8   12   15   20   30
+         13   18   22   27   35
+         19   24   28   33   40
+
+        Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Visitando valor 21 (Buscando: 21)
+            2    5    9   14  (21)
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+           19   24   28   33   40
+
+          Exito: Objetivo encontrado.
+Comparaciones totales realizadas: 19
+--------------------------------------------------
+
+Encontrada: true
+
+## Trazado para 16.
+
+Visitando valor 15 (Buscando: 16)
+  2    5    9   14   21
+  4    7   11   17   25
+  8   12  (15)  20   30
+ 13   18   22   27   35
+ 19   24   28   33   40
+
+Menor que objetivo. Descartando cuadrante superior-izquierdo.
+  Visitando valor 27 (Buscando: 16)
+    2    5    9   14   21
+    4    7   11   17   25
+    8   12   15   20   30
+   13   18   22  (27)  35
+   19   24   28   33   40
+
+  Mayor que objetivo. Descartando cuadrante inferior-derecho.
+    Visitando valor 22 (Buscando: 16)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15   20   30
+     13   18  (22)  27   35
+     19   24   28   33   40
+
+    Mayor que objetivo. Descartando cuadrante inferior-derecho.
+      Visitando valor 18 (Buscando: 16)
+        2    5    9   14   21
+        4    7   11   17   25
+        8   12   15   20   30
+       13  (18)  22   27   35
+       19   24   28   33   40
+
+      Mayor que objetivo. Descartando cuadrante inferior-derecho.
+        Visitando valor 13 (Buscando: 16)
+          2    5    9   14   21
+          4    7   11   17   25
+          8   12   15   20   30
+        (13)  18   22   27   35
+         19   24   28   33   40
+
+        Menor que objetivo. Descartando cuadrante superior-izquierdo.
+          Visitando valor 19 (Buscando: 16)
+            2    5    9   14   21
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+          (19)  24   28   33   40
+
+          Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Retrocediendo (Backtracking)...
+        Retrocediendo (Backtracking)...
+      Retrocediendo (Backtracking)...
+    Retrocediendo (Backtracking)...
+    Visitando valor 20 (Buscando: 16)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15  (20)  30
+     13   18   22   27   35
+     19   24   28   33   40
+
+    Mayor que objetivo. Descartando cuadrante inferior-derecho.
+      Visitando valor 17 (Buscando: 16)
+        2    5    9   14   21
+        4    7   11  (17)  25
+        8   12   15   20   30
+       13   18   22   27   35
+       19   24   28   33   40
+
+      Mayor que objetivo. Descartando cuadrante inferior-derecho.
+        Visitando valor 14 (Buscando: 16)
+          2    5    9  (14)  21
+          4    7   11   17   25
+          8   12   15   20   30
+         13   18   22   27   35
+         19   24   28   33   40
+
+        Menor que objetivo. Descartando cuadrante superior-izquierdo.
+          Visitando valor 21 (Buscando: 16)
+            2    5    9   14  (21)
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+           19   24   28   33   40
+
+          Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Retrocediendo (Backtracking)...
+        Retrocediendo (Backtracking)...
+      Retrocediendo (Backtracking)...
+    Retrocediendo (Backtracking)...
+  Retrocediendo (Backtracking)...
+Retrocediendo (Backtracking)...
+Busqueda finalizada sin exito.
+Comparaciones totales realizadas: 20
+--------------------------------------------------
+
+Encontrada: false
