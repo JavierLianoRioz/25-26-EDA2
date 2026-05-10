@@ -434,3 +434,106 @@ Comparaciones totales realizadas: 20
 --------------------------------------------------
 
 Encontrada: false
+
+## ¿En el peor de los casos hay alguna manera mejor de hacerlo?
+
+En principio, hacerlo de forma escalonada desde la esquina superior derecha hasta la esquina inferior izquierda es mejor que el sistema que usamos en el peor de los casos. Pero si buscamos un numero en una posicion aleatoria, de media, este sistema es mejor para matrices más pequeñas porque hace menos comparaciones.
+
+## ¿Cuántas comparaciones hace su algoritmo en el mejor caso? ¿Y en el peor caso?
+
+### Mejor caso: O(1)
+
+Es cuando buscamos en (N/2, N/2) en el caso de esta matriz, en el 15.
+
+### Pero caso: O(N^2)
+
+Es cuando buscamos el valor de arriba a la derecha, en este caso 21
+
+Visitando valor 15 (Buscando: 21)
+  2    5    9   14   21
+  4    7   11   17   25
+  8   12  (15)  20   30
+ 13   18   22   27   35
+ 19   24   28   33   40
+
+Menor que objetivo. Descartando cuadrante superior-izquierdo.
+  Visitando valor 27 (Buscando: 21)
+    2    5    9   14   21
+    4    7   11   17   25
+    8   12   15   20   30
+   13   18   22  (27)  35
+   19   24   28   33   40
+
+  Mayor que objetivo. Descartando cuadrante inferior-derecho.
+    Visitando valor 22 (Buscando: 21)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15   20   30
+     13   18  (22)  27   35
+     19   24   28   33   40
+
+    Mayor que objetivo. Descartando cuadrante inferior-derecho.
+      Visitando valor 18 (Buscando: 21)
+        2    5    9   14   21
+        4    7   11   17   25
+        8   12   15   20   30
+       13  (18)  22   27   35
+       19   24   28   33   40
+
+      Menor que objetivo. Descartando cuadrante superior-izquierdo.
+        Visitando valor 24 (Buscando: 21)
+          2    5    9   14   21
+          4    7   11   17   25
+          8   12   15   20   30
+         13   18   22   27   35
+         19  (24)  28   33   40
+
+        Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Visitando valor 19 (Buscando: 21)
+            2    5    9   14   21
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+          (19)  24   28   33   40
+
+          Menor que objetivo. Descartando cuadrante superior-izquierdo.
+          Retrocediendo (Backtracking)...
+        Retrocediendo (Backtracking)...
+      Retrocediendo (Backtracking)...
+    Retrocediendo (Backtracking)...
+    Visitando valor 20 (Buscando: 21)
+      2    5    9   14   21
+      4    7   11   17   25
+      8   12   15  (20)  30
+     13   18   22   27   35
+     19   24   28   33   40
+
+    Menor que objetivo. Descartando cuadrante superior-izquierdo.
+      Visitando valor 30 (Buscando: 21)
+        2    5    9   14   21
+        4    7   11   17   25
+        8   12   15   20  (30)
+       13   18   22   27   35
+       19   24   28   33   40
+
+      Mayor que objetivo. Descartando cuadrante inferior-derecho.
+        Visitando valor 25 (Buscando: 21)
+          2    5    9   14   21
+          4    7   11   17  (25)
+          8   12   15   20   30
+         13   18   22   27   35
+         19   24   28   33   40
+
+        Mayor que objetivo. Descartando cuadrante inferior-derecho.
+          Visitando valor 21 (Buscando: 21)
+            2    5    9   14  (21)
+            4    7   11   17   25
+            8   12   15   20   30
+           13   18   22   27   35
+           19   24   28   33   40
+
+          Exito: Objetivo encontrado.
+Comparaciones totales realizadas: 19
+--------------------------------------------------
+
+true
